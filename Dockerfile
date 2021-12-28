@@ -16,9 +16,9 @@ ENV CATALINA_BASE   /usr/local/tomcat
 ENV CATALINA_HOME   /usr/local/tomcat
 ENV CATALINA_TMPDIR /usr/local/tomcat/temp
 
-#VOLUME /usr/hmdm
-#
-#VOLUME /usr/local/tomcat/conf/Catalina/localhost
+VOLUME /usr/hmdm
+
+VOLUME /usr/local/tomcat/conf/Catalina/localhost
 
 
 ENV HMDM_VERSION 4.08.2
