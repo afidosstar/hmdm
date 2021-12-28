@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  hmdm:
+    image: afidos/hmdm
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_PASSWORD: hmdm
+      DB_USER: hmdm
+      DB_DATABASE: hmdm
+      DB_PORT: 5432
+      DB_HOST: database
+    ports:
+      - 8080:8080
+      - 31000:31000 #MQTT notification service started at 0.0.0.0:31000
+    depends_on:
+      - database
+    networks:
+      - network
+
+
+  database:
+    image: postgres:10-alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: hmdm
+      POSTGRES_USER: hmdm
+      POSTGRES_DB: hmdm
+    ports:
+      - 6032:5432
+    networks:
+      - network
+
+volumes:
+    db_data:
+
+networks:
+    network:
