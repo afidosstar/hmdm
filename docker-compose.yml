@@ -12,7 +12,7 @@ services:
       DB_DATABASE: hmdm
       DB_PORT: 5432
       DB_HOST: database
-      HOST: hmdm.apps.sfp-groupe.dev
+      HOST: 0.0.0.0
     ports:
       - 8080:8080
       - 31000:31000 #MQTT notification service started at 0.0.0.0:31000
