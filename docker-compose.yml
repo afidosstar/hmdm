@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   hmdm:
-    image: afidos/hmdm
+    image: afidos/server-hmdm
     build:
       context: .
       dockerfile: Dockerfile
